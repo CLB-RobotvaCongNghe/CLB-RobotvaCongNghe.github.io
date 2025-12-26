@@ -1,1 +1,392 @@
-chao mung ban da den voi clb robot va cong ngh
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0b1020" />
+    <title>CLB Robot & Công nghệ — Khoa Điện & Tự động hoá (UNETI)</title>
+    <meta name="description"
+        content="CLB Robot & Công nghệ — cộng đồng robotics, nhúng, tự động hoá, IoT, PLC thuộc Khoa Điện & Tự động hoá — UNETI." />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <!-- Anchor top (CHỈ 1 cái) -->
+    <div id="top"></div>
+
+    <!-- Ambient background -->
+    <div class="bg">
+        <div class="blob b1"></div>
+        <div class="blob b2"></div>
+        <div class="grid"></div>
+        <canvas id="stars" aria-hidden="true"></canvas>
+    </div>
+
+    <header class="topbar">
+        <div class="container topbar__inner">
+            <a class="brand" href="#top" aria-label="Về đầu trang">
+                <img src="assets/logo.jpg" alt="Logo CLB Robot & Công nghệ" class="brand__logo" />
+                <div class="brand__text">
+                    <div class="brand__name">CLB Robot & Công nghệ</div>
+                    <div class="brand__sub">Khoa Điện & Tự động hoá — UNETI</div>
+                </div>
+            </a>
+
+            <nav class="nav" aria-label="Điều hướng">
+                <button class="nav__toggle" id="navToggle" aria-label="Mở menu" aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <ul class="nav__list" id="navList">
+                    <li><a class="nav__link" href="#gioi-thieu">Giới thiệu</a></li>
+                    <li><a class="nav__link" href="#tam-nhin">Tầm nhìn</a></li>
+                    <li><a class="nav__link" href="#hoat-dong">Hoạt động</a></li>
+                    <li><a class="nav__link" href="#san-choi">Sân chơi</a></li>
+                    <li><a class="nav__link" href="#tham-gia">Tham gia</a></li>
+                    <li><a class="nav__link" href="#lien-he">Liên hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <div class="container hero__grid">
+                <div class="hero__left reveal">
+                    <div class="chips">
+                        <span class="chip"><i class="fa-solid fa-robot"></i> Robotics</span>
+                        <span class="chip"><i class="fa-solid fa-microchip"></i> Embedded</span>
+                        <span class="chip"><i class="fa-solid fa-bolt"></i> Automation</span>
+                        <span class="chip"><i class="fa-solid fa-satellite-dish"></i> IoT</span>
+                        <span class="chip"><i class="fa-solid fa-industry"></i> PLC</span>
+                    </div>
+
+                    <h1 class="hero__title">🤖 CLB Robot & Công nghệ <span class="accent">⚙️</span></h1>
+
+                    <p class="hero__subtitle">
+                        ⚡ Khoa Điện & Tự động hoá — Trường Đại học Kinh tế - Kỹ thuật Công nghiệp (UNETI)
+                    </p>
+
+                    <p class="hero__motto"><b>🔥</b> <span class="typing" id="typing"></span></p>
+
+                    <div class="hero__cta">
+                        <a class="btn btn--primary" href="#tham-gia">
+                            <i class="fa-solid fa-user-plus"></i> Tham gia CLB
+                        </a>
+                        <a class="btn btn--ghost" href="#hoat-dong">
+                            <i class="fa-solid fa-bolt"></i> Xem hoạt động
+                        </a>
+                    </div>
+
+                    <!-- ✅ Stats từ JSON -->
+                    <div class="stats reveal" id="stats"></div>
+
+                </div>
+
+                <div class="hero__right reveal">
+                    <div class="frame tilt" data-tilt>
+                        <img src="assets/thanhvien.jpg" alt="Thành viên CLB Robot & Công nghệ" class="frame__img" />
+                        <div class="frame__glow" aria-hidden="true"></div>
+                        <div class="frame__caption">
+                            <i class="fa-solid fa-people-group"></i> Học thật — Làm thật — Chia sẻ thật
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero__scroll">
+                <a href="#gioi-thieu" class="scrollHint" aria-label="Cuộn xuống">
+                    <span>Cuộn xuống</span>
+                    <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- INTRO -->
+        <section class="section" id="gioi-thieu">
+            <div class="container">
+                <div class="section__head reveal">
+                    <h2 class="section__title">✨ Giới thiệu</h2>
+                    <p class="section__desc">
+                        <b>CLB Robot & Công nghệ</b> là cộng đồng dành cho sinh viên yêu thích <b>robotics 🤖</b>,
+                        <b>lập trình nhúng ⚙️</b>,
+                        <b>điện – điện tử 🔌</b>, <b>điều khiển 🎛️</b>, <b>tự động hoá ⚡</b> và <b>PLC 🏭</b> thuộc
+                        <b>Khoa Điện & Tự động hoá – UNETI</b>.
+                    </p>
+                </div>
+
+                <div class="cards">
+                    <article class="card tilt reveal" data-tilt>
+                        <h3><i class="fa-solid fa-book"></i> Nền tảng vững</h3>
+                        <p>Học chắc kỹ thuật: điện – điện tử, nhúng, điều khiển, PLC, IoT… theo lộ trình.</p>
+                    </article>
+                    <article class="card tilt reveal" data-tilt>
+                        <h3><i class="fa-solid fa-flask"></i> Dự án thực tế</h3>
+                        <p>Làm dự án theo nhóm: thiết kế, debug, tài liệu hoá, demo sản phẩm.</p>
+                    </article>
+                    <article class="card tilt reveal" data-tilt>
+                        <h3><i class="fa-solid fa-trophy"></i> Sân chơi thi đấu</h3>
+                        <p>Tham gia sân chơi kỹ thuật, hướng tới Robocon và các cuộc thi học thuật.</p>
+                    </article>
+                </div>
+
+                <div class="quote reveal">
+                    <div class="quote__icon">💬</div>
+                    <div class="quote__text">
+                        <b>Tinh thần CLB:</b> <span class="accent">Dám nghĩ – Dám làm – Dám chịu trách
+                            nhiệm</span><br />
+                        ✅ Nghĩ có định hướng • ✅ Làm có kỷ luật • ✅ Chịu trách nhiệm đến cùng
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISION / MISSION -->
+        <section class="section section--alt" id="tam-nhin">
+            <div class="container">
+                <div class="section__head reveal">
+                    <h2 class="section__title">🎯 Tầm nhìn & Sứ mệnh</h2>
+                    <p class="section__desc">Cùng xây một CLB học thuật mạnh — nơi “thực hành chuyên sâu” và tạo ra sản
+                        phẩm có giá trị thực tiễn.</p>
+                </div>
+
+                <div class="split">
+                    <div class="panel reveal">
+                        <h3>🌍 Tầm nhìn</h3>
+                        <p>Trở thành CLB học thuật mạnh của Khoa, nơi sinh viên <b>thực hành chuyên sâu</b> và tạo ra
+                            sản phẩm/đồ án có giá trị.</p>
+                    </div>
+                    <div class="panel reveal">
+                        <h3>🚀 Sứ mệnh</h3>
+                        <ul class="list">
+                            <li>📚 Hỗ trợ sinh viên xây nền tảng điện – điện tử – nhúng – điều khiển – tự động hoá</li>
+                            <li>🧑‍🏫 Tổ chức training / workshop / mentoring, chia sẻ kinh nghiệm làm đồ án</li>
+                            <li>🧩 Xây văn hoá dự án mở: cùng học – cùng làm – cùng chịu trách nhiệm</li>
+                            <li>🏆 Phát triển đội nhóm tham gia cuộc thi kỹ thuật và sân chơi học thuật</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACTIVITIES -->
+        <section class="section" id="hoat-dong">
+            <div class="container">
+                <div class="section__head reveal">
+                    <h2 class="section__title">🌟 Hoạt động nổi bật</h2>
+                    <p class="section__desc">Training bài bản + dự án thực chiến — đúng chất “làm robot thật, chạy
+                        thật”.</p>
+                </div>
+
+                <div class="grid2">
+                    <div class="feature reveal">
+                        <div class="feature__top">
+                            <h3>📖 Training & Workshop</h3>
+                            <span class="tag">Lộ trình</span>
+                        </div>
+                        <ul class="list">
+                            <li>🔌 Điện – điện tử nền tảng, an toàn điện, đo kiểm</li>
+                            <li>⚙️ Vi điều khiển / lập trình nhúng (Arduino / STM32 / ESP32…)</li>
+                            <li>🎛️ Điều khiển động cơ, cảm biến, cơ cấu chấp hành</li>
+                            <li>🏭 PLC (Ladder/FBD) + HMI/SCADA cơ bản, truyền thông Modbus/RS485/Ethernet</li>
+                            <li>🧠 Debug, đọc datasheet, tư duy thiết kế hệ thống</li>
+                            <li>🧾 Viết tài liệu, demo, thuyết trình dự án</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature reveal">
+                        <div class="feature__top">
+                            <h3>🧪 Dự án thực tế (team-based)</h3>
+                            <span class="tag">Thực chiến</span>
+                        </div>
+                        <ul class="list">
+                            <li>🤖 Robot line/maze, robot tránh vật cản, robot điều hướng</li>
+                            <li>🏭 Mini factory: băng tải phân loại dùng PLC + cảm biến</li>
+                            <li>📦 Đếm/đóng gói sản phẩm: PLC + HMI</li>
+                            <li>🌡️ Giám sát môi trường & cảnh báo (IoT/Modbus)</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- COMPETITIONS -->
+        <section class="section section--alt" id="san-choi">
+            <div class="container">
+                <div class="section__head reveal">
+                    <h2 class="section__title">🏆 Sân chơi & Cuộc thi</h2>
+                    <p class="section__desc">CLB tham gia sân chơi kỹ thuật lớn nhỏ, mục tiêu trọng điểm là
+                        <b>Robocon</b> 🥇🤖.</p>
+                </div>
+
+                <div class="cards cards--wide">
+                    <article class="card card--big reveal">
+                        <h3><i class="fa-solid fa-flag-checkered"></i> Giải robot mini hằng năm</h3>
+                        <p>CLB tổ chức giải robot mini 🎮🏁 để sinh viên trong & ngoài Khoa được trải nghiệm thi đấu và
+                            phát hiện nhân lực cho đội thi lớn.</p>
+                        <ul class="list">
+                            <li>🧑‍🎓 Trải nghiệm thi đấu thực tế</li>
+                            <li>🤝 Giao lưu – kết nối đam mê kỹ thuật</li>
+                            <li>🚀 Bồi dưỡng nhân lực cho đội thi lớn hơn</li>
+                            <li>🎯 Rèn kỷ luật, teamwork, xử lý vấn đề</li>
+                        </ul>
+                    </article>
+
+                    <article class="card card--big reveal">
+                        <h3><i class="fa-solid fa-gears"></i> Tinh thần thi đấu</h3>
+                        <p>
+                            Cuộc thi là nơi rèn <b>kỷ luật</b>, <b>teamwork</b>, <b>kỹ năng xử lý vấn đề</b> và <b>tinh
+                                thần chịu trách nhiệm</b>.
+                        </p>
+                        <div class="pillRow">
+                            <span class="pill">Kỷ luật</span>
+                            <span class="pill">Teamwork</span>
+                            <span class="pill">Debug</span>
+                            <span class="pill">Thiết kế hệ thống</span>
+                            <span class="pill">Demo sản phẩm</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOIN -->
+        <section class="section" id="tham-gia">
+            <div class="container">
+                <div class="section__head reveal">
+                    <h2 class="section__title">🧩 Tham gia & đóng góp</h2>
+                    <p class="section__desc">Newbie vẫn tham gia được — quan trọng là chăm và nghiêm túc.</p>
+                </div>
+
+                <div class="grid3">
+                    <div class="panel reveal">
+                        <h3>👋 Ai có thể tham gia?</h3>
+                        <ul class="list">
+                            <li>🐣 <b>Newbie</b>: chưa biết gì vẫn ok</li>
+                            <li>🧑‍💻 <b>Intermediate/Advanced</b>: dự án lớn, dẫn nhóm, mentor</li>
+                        </ul>
+                    </div>
+
+                    <div class="panel reveal">
+                        <h3>🤝 Bạn nhận được gì?</h3>
+                        <ul class="list">
+                            <li>✅ Nền tảng vững hơn qua thực hành</li>
+                            <li>✅ Kinh nghiệm dự án nhóm như môi trường thật</li>
+                            <li>✅ Cơ hội thi đấu, workshop, giao lưu</li>
+                            <li>✅ Kết nối mentor và cộng đồng</li>
+                        </ul>
+                    </div>
+
+                    <div class="panel reveal">
+                        <h3>🚀 Bắt đầu nhanh</h3>
+                        <ol class="steps">
+                            <li>Nhắn fanpage</li>
+                            <li>Tham gia onboarding</li>
+                            <li>Chọn team/lộ trình</li>
+                            <li>Vào dự án & nhận nhiệm vụ</li>
+                        </ol>
+                        <a class="btn btn--primary btn--full" href="#lien-he">
+                            <i class="fa-brands fa-facebook"></i> Nhắn fanpage ngay
+                        </a>
+                    </div>
+                </div>
+
+                <div class="rules reveal">
+                    <h3 class="rules__title">📌 Quy tắc “nhẹ” của CLB</h3>
+                    <div class="rules__grid">
+                        <div class="rule"><i class="fa-solid fa-handshake"></i> Tôn trọng nhau, làm việc nhóm tử tế
+                        </div>
+                        <div class="rule"><i class="fa-solid fa-triangle-exclamation"></i> An toàn điện là ưu tiên số 1
+                        </div>
+                        <div class="rule"><i class="fa-solid fa-calendar-check"></i> Có kế hoạch, có deadline</div>
+                        <div class="rule"><i class="fa-solid fa-share-nodes"></i> Không giấu nghề — học được gì chia sẻ
+                            lại</div>
+                        <div class="rule"><i class="fa-solid fa-shield-heart"></i> Dám làm đi kèm dám chịu trách nhiệm
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section section--alt" id="lien-he">
+            <div class="container">
+                <div class="section__head reveal">
+                    <h2 class="section__title">📬 Liên hệ</h2>
+                    <p class="section__desc">Kết nối với CLB để tham gia training, dự án và sân chơi.</p>
+                </div>
+
+                <div class="contact">
+                    <div class="panel reveal">
+                        <h3>📣 Fanpage/Group</h3>
+                        <p>
+                            <a class="link" target="_blank" rel="noopener"
+                                href="https://www.facebook.com/CLBRobotvaCongnghekhoadientudonghoa">
+                                Link Facebook CLB
+                            </a>
+                        </p>
+                        <div class="copyRow">
+                            <button class="btn btn--ghost"
+                                data-copy="https://www.facebook.com/CLBRobotvaCongnghekhoadientudonghoa">
+                                <i class="fa-regular fa-copy"></i> Copy link fanpage
+                            </button>
+                            <span class="copyToast" id="copyToast" role="status" aria-live="polite"></span>
+                        </div>
+                    </div>
+
+                    <div class="panel reveal">
+                        <h3>✉️ Email</h3>
+                        <p><a class="link" href="mailto:caulacbornt@gmail.com">caulacbornt@gmail.com</a></p>
+                        <button class="btn btn--ghost" data-copy="caulacbornt@gmail.com">
+                            <i class="fa-regular fa-copy"></i> Copy email
+                        </button>
+                    </div>
+
+                    <div class="panel reveal">
+                        <h3>🏫 Địa điểm sinh hoạt</h3>
+                        <p>810-HA10 Trường Đại Học Kinh Tế-Kỹ Thuật Công Nghiệp</p>
+                        <a class="btn btn--ghost" target="_blank" rel="noopener"
+                            href="https://www.google.com/maps/search/?api=1&query=810-HA10+Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+H%E1%BB%8Dc+Kinh+T%E1%BA%BF-K%E1%BB%B9+Thu%E1%BA%ADt+C%C3%B4ng+Nghi%E1%BB%87p">
+                            <i class="fa-solid fa-location-dot"></i> Mở Google Maps
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__inner">
+            <div>
+                © <span id="year"></span> CLB Robot & Công nghệ — UNETI
+                • Design by
+                <a class="link" href="https://github.com/TranDangKhoaTechnology" target="_blank" rel="noopener">
+                    TranDangKhoaTechnology
+                </a>
+            </div>
+            <div class="footer__right">
+                <a class="link" href="#top">Về đầu trang ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="toTop" id="toTop" aria-label="Lên đầu trang">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
