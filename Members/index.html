@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b1020" />
+  <title>Thành viên — CLB Robot & Công nghệ (UNETI)</title>
+  <meta name="description" content="Danh sách và cơ cấu thành viên CLB Robot & Công nghệ." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+  <div id="top"></div>
+
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+    <canvas id="stars" aria-hidden="true"></canvas>
+  </div>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="../" aria-label="Về trang chủ">
+        <img src="../assets/logo.jpg" alt="Logo CLB Robot & Công nghệ" class="brand__logo" />
+        <div class="brand__text">
+          <div class="brand__name">CLB Robot & Công nghệ</div>
+          <div class="brand__sub">Khoa Điện & Tự động hoá — UNETI</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Điều hướng">
+        <button class="nav__toggle" id="navToggle" aria-label="Mở menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul class="nav__list" id="navList">
+          <li><a class="nav__link" href="../#gioi-thieu">Giới thiệu</a></li>
+          <li><a class="nav__link" href="../#hoat-dong">Hoạt động</a></li>
+          <li><a class="nav__link" href="../#san-choi">Sân chơi</a></li>
+          <li><a class="nav__link active" href="../Members/">Thành viên</a></li>
+          <li><a class="nav__link" href="../Achievements/">Thành tích</a></li>
+          <li><a class="nav__link" href="../Competitions-Organized/">Tổ chức giải</a></li>
+          <li><a class="nav__link" href="../#lien-he">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding-bottom:12px;">
+      <div class="container hero__grid" style="grid-template-columns:1fr;">
+        <div class="hero__left reveal">
+          <div class="chips">
+            <span class="chip"><i class="fa-solid fa-link"></i> /Members</span>
+            <span class="chip"><i class="fa-solid fa-house"></i>
+              <a href="../" style="text-decoration:underline; text-underline-offset:4px;">Trang chủ</a>
+            </span>
+          </div>
+
+          <h1 class="hero__title">👥 Thành viên <span class="accent">⚙️</span></h1>
+          <p class="hero__subtitle">Danh sách và cơ cấu thành viên CLB Robot & Công nghệ.</p>
+
+          <div class="hero__cta">
+            <a class="btn btn--ghost" href="../">
+              <i class="fa-solid fa-arrow-left"></i> Quay về trang chủ
+            </a>
+            <a class="btn btn--primary" href="../#tham-gia">
+              <i class="fa-solid fa-user-plus"></i> Tham gia CLB
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="members" style = "padding: 0px;">
+      <div class="container">
+        <div class="panel reveal" style="margin-top:14px;">
+          <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+            <div class="tag">Lọc nhanh</div>
+            <select id="teamFilter" class="btn btn--ghost" style="padding:10px 12px;">
+              <option value="__all__">Tất cả ban</option>
+            </select>
+
+            <input id="memberSearch" class="btn btn--ghost" type="search"
+              placeholder="Tìm theo tên/chức vụ/lớp/mảng..."
+              style="padding:10px 12px; min-width:min(420px, 100%);" />
+          </div>
+        </div>
+
+        <div id="membersContent" style="margin-top:16px;"></div>
+
+        <div id="membersEmpty" class="panel" style="margin-top:12px; display:none;">
+          <h3 style="margin:0 0 8px;">Không có dữ liệu</h3>
+          <p style="margin:0; color: rgba(234,240,255,.72); line-height:1.6;">
+            Kiểm tra <b>Members/members.json</b> hoặc chạy site bằng server (không mở file:///).
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        © <span id="year"></span> CLB Robot & Công nghệ — UNETI • Design by
+        <a class="link" href="https://github.com/TranDangKhoaTechnology" target="_blank" rel="noopener">Trưởng Ban Kĩ Thuật</a>
+      </div>
+      <div class="footer__right">
+        <a class="link" href="#top">Về đầu trang ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="toTop" id="toTop" aria-label="Lên đầu trang">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="../script.js"></script>
+
+  <!-- Render members.json -->
+  <script>
+    (function () {
+      var host = document.getElementById("membersContent");
+      var emptyBox = document.getElementById("membersEmpty");
+      var teamFilter = document.getElementById("teamFilter");
+      var searchInput = document.getElementById("memberSearch");
+      if (!host) return;
+
+      function esc(s) {
+        return String(s || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function norm(s) {
+        return String(s || "").toLowerCase().trim();
+      }
+
+      function cardHTML(m) {
+        var name = esc(m.name || "Chưa đặt tên");
+        var cls = m.class ? esc(m.class) : "";
+        var pos = esc(m.position || "");
+        var avatar = esc(m.avatar || "../assets/thanhvien.jpg");
+        var banner = m.banner ? esc(m.banner) : "";
+
+        var resp = Array.isArray(m.responsibilities) ? m.responsibilities : [];
+        var pills = resp.map(function (x) { return '<span class="pill">' + esc(x) + '</span>'; }).join("");
+
+        var bannerStyle = banner
+          ? 'style="background-image:url(\'' + banner + '\');"'
+          : "";
+
+        return (
+          '<article class="card memberCard tilt" data-tilt>' +
+            '<div class="memberBanner" ' + bannerStyle + ' aria-hidden="true"></div>' +
+
+            '<div class="memberCardBody">' +
+              '<div class="memberTop">' +
+                '<img class="memberAvatar" src="' + avatar + '" alt="' + name + '">' +
+                '<div class="memberInfo">' +
+                  '<div class="memberName">' + name + '</div>' +
+                  '<div class="memberMeta">' +
+                    (cls ? ('<span class="memberMetaItem"><i class="fa-solid fa-graduation-cap"></i><span>' + cls + '</span></span>') : '') +
+                    (pos ? ('<span class="memberMetaItem"><i class="fa-solid fa-id-badge"></i><span>' + pos + '</span></span>') : '') +
+                  '</div>' +
+                '</div>' +
+              '</div>' +
+
+              (pills
+                ? ('<div class="pillRow memberPills">' + pills + '</div>')
+                : '<p class="memberEmptyNote">Chưa cập nhật mảng phụ trách.</p>') +
+            '</div>' +
+          '</article>'
+        );
+      }
+
+      function render(groups, filterKey, q) {
+        host.innerHTML = "";
+        var total = 0;
+
+        var qn = norm(q);
+        var fk = filterKey || "__all__";
+
+        groups.forEach(function (g) {
+          var members = Array.isArray(g.members) ? g.members : [];
+          var label = g.label || "Thành viên";
+          var key = g.key || label;
+
+          if (fk !== "__all__" && String(key) !== String(fk)) return;
+
+          var filtered = members.filter(function (m) {
+            if (!qn) return true;
+            var hay = [
+              m.name, m.class, m.position,
+              (Array.isArray(m.responsibilities) ? m.responsibilities.join(" ") : "")
+            ].map(norm).join(" | ");
+            return hay.indexOf(qn) !== -1;
+          });
+
+          if (!filtered.length) return;
+
+          total += filtered.length;
+
+          host.insertAdjacentHTML("beforeend",
+            '<div class="section__head" style="margin-top:18px;">' +
+              '<h3 class="section__title" style="font-size:1.35rem; margin:0 0 6px;">' + esc(label) + '</h3>' +
+              '<p class="section__desc" style="margin:0;">' + filtered.length + ' thành viên</p>' +
+            '</div>' +
+            '<div class="cards membersCards">' +
+              filtered.map(cardHTML).join("") +
+            '</div>'
+          );
+        });
+
+        if (!total) {
+          if (emptyBox) emptyBox.style.display = "block";
+        } else {
+          if (emptyBox) emptyBox.style.display = "none";
+        }
+      }
+
+      fetch("./members.json", { cache: "no-store" })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          var groups = Array.isArray(data && data.groups) ? data.groups : [];
+          if (!groups.length) {
+            if (emptyBox) emptyBox.style.display = "block";
+            return;
+          }
+
+          if (teamFilter) {
+            var opts = ['<option value="__all__">Tất cả ban</option>'];
+            groups.forEach(function (g) {
+              var key = (g.key || "").toString();
+              var label = (g.label || "").toString();
+              if (!key || !label) return;
+              opts.push('<option value="' + esc(key) + '">' + esc(label) + '</option>');
+            });
+            teamFilter.innerHTML = opts.join("");
+          }
+
+          function apply() {
+            var fk = teamFilter ? teamFilter.value : "__all__";
+            var q = searchInput ? searchInput.value : "";
+            render(groups, fk, q);
+          }
+
+          if (teamFilter) teamFilter.addEventListener("change", apply);
+          if (searchInput) searchInput.addEventListener("input", apply);
+
+          apply();
+        })
+        .catch(function () {
+          if (emptyBox) emptyBox.style.display = "block";
+        });
+    })();
+  </script>
+
+  <!-- CSS cho member card -->
+  <style>
+    .memberCard{
+      position:relative;
+      overflow:hidden;
+    }
+
+    .memberBanner{
+      position:absolute;
+      inset:0;
+      z-index:0;
+      background:
+        radial-gradient(900px 260px at 10% 10%, rgba(124,92,255,.18), transparent 60%),
+        radial-gradient(900px 260px at 80% 20%, rgba(0,212,255,.14), transparent 60%),
+        radial-gradient(900px 260px at 50% 95%, rgba(34,255,138,.10), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
+      transform: scale(1.02);
+    }
+
+    .memberBanner[style*="background-image"]{
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.05) contrast(1.05);
+      opacity: .35;
+    }
+
+    .memberCardBody{
+      position:relative;
+      z-index:2;
+    }
+
+    .memberTop{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      margin-bottom:12px;
+    }
+
+    .memberAvatar{
+      width:56px;
+      height:56px;
+      border-radius:16px;
+      object-fit:cover;
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: 0 12px 26px rgba(0,0,0,.35);
+      flex: 0 0 auto;
+    }
+
+    .memberInfo{
+      min-width:0;
+      flex: 1 1 auto;
+    }
+
+    .memberName{
+      font-weight:700;
+      font-size:1.05rem;
+      letter-spacing:.2px;
+      overflow-wrap:anywhere;
+      word-break:break-word;
+    }
+
+    .memberMeta{
+      margin-top:6px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      align-items:flex-start;
+      color: rgba(234,240,255,.72);
+      font-size:.92rem;
+    }
+
+    .memberMetaItem{
+      display:flex;
+      gap:8px;
+      align-items:flex-start;
+      min-width:0;
+      white-space:normal;
+      overflow-wrap:anywhere;
+      word-break:break-word;
+      line-height:1.35;
+    }
+
+    .memberMetaItem span{
+      display:block;
+      max-width:100%;
+    }
+
+    .memberPills{ margin-top:10px; }
+    .membersCards{ margin-top:10px; }
+
+    .memberEmptyNote{
+      margin:0;
+      color: rgba(234,240,255,.72);
+    }
+  </style>
+</body>
+</html>

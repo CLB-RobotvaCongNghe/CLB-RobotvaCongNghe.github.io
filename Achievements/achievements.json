@@ -1,0 +1,90 @@
+{
+  "meta": {
+    "title": "Thành tích — CLB Robot & Công nghệ (UNETI)",
+    "updated": "2025-12-27"
+  },
+  "items": [
+    {
+      "key": "robocon-2025",
+      "year": 2025,
+      "type": "competition",
+      "competition": "Robocon 2025",
+      "award": "Top 1/8 Chung kết toàn quốc",
+      "team": "Đội Điện TDH 02 / Điện TDH 01",
+      "role": "Lập trình / Cơ Khí / Điện",
+      "location": "Ninh Bình",
+      "description": "Tham gia cuộc thi Robocon năm 2025 với chủ đề 'Chiến Binh Bóng Rổ'.",
+      "images": [],
+      "links": []
+    },
+    {
+      "key": "mini-robot-2025",
+      "year": 2025,
+      "type": "award",
+      "competition": "Thi Robot Mini",
+      "award": "Giải Nhất / Nhì / Ba / Ấn Tượng / Sáng Tạo",
+      "team": "CLB Robot & Công nghệ",
+      "role": "Lập trình / Cơ Khí / Điện",
+      "location": "UNETI",
+      "description": "Thành tích đạt được tại cuộc thi robot mini của trường/khoa.",
+      "": [
+        "../assets/achievements/2025/mini-robot-1.jpg"
+      ],
+      "links": [
+        { "label": "Bài viết / Fanpage", "href": "https://www.facebook.com/CLBRobotvaCongnghekhoadientudonghoa/posts/pfbid02SNChpQC1LsLS9nfPTiaBgp6tGfVcAXXQUDcriaG5CVKKZUUYPh59nnNTaR2RJZQyl" }
+      ]
+    },
+    {
+      "key": "sky-target-challenge-2025",
+      "year": 2025,
+      "type": "competition",
+      "competition": "Robot Mini SKY TARGET CHALLENGE",
+      "award": "Đạt giải ba",
+      "team": "CLB Robot & Công nghệ",
+      "role": "Lập trình / Cơ Khí / Điện",
+      "location": "Đại Học Công Nghiệp Hà Nội",
+      "description": "Ngày 30/11/2025, CLB Robot và Công nghệ, đã tham gia thi đấu và xuất sắc đạt Giải Ba tại Cuộc thi \"Sáng tạo Robot Mini SKY TARGET CHALLENGE 2025\" do Trường Điện - Điện tử, Đại học Công nghiệp Hà Nội tổ chức.",
+      "": [
+        "../assets/achievements/2025/iot-1.jpg",
+        "../assets/achievements/2025/iot-2.jpg"
+      ],
+      "links": [
+        { "label": "Bài viết / Fanpage", "href": "https://www.facebook.com/share/p/1VZKDkcanz/" }
+      ]
+    },
+    {
+      "key": "robocon-2024",
+      "year": 2024,
+      "type": "competition",
+      "competition": "Robocon 2024",
+      "award": "Top 1/8 Chung kết toàn quốc",
+      "team": "CLB Robot & Công nghệ",
+      "role": "Lập trình / Cơ Khí / Điện",
+      "location": "Hà Nội",
+      "description": "Cuộc thi năm nay quy tụ 64 đội tuyển đến từ 23 trường đại học và cao đẳng thuộc khối kỹ thuật trên toàn quốc. Trường Đại học Kinh tế - Kỹ thuật Công nghiệp UNETI có 5 đội dự thi trong đó Khoa Điện - Tự Động Hoá UNETI có hai đội đăng ký tham gia là Uneti – TDH01 và Uneti – TDH02",
+      "images": [
+        "../assets/members/2025/hoangvankhai.jpg"
+      ],
+      "links": [
+        { "label": "Bài viết / Fanpage", "href": "https://www.facebook.com/share/p/17dEBuXCgy/" }
+      ]
+    },
+    {
+      "key": "roboball-2024",
+      "year": 2024,
+      "type": "competition",
+      "competition": "Roboball Challenge 2024",
+      "award": "Giải Nhất / Ba",
+      "team": "CLB Robot & Công nghệ",
+      "role": "Lập trình / Cơ Khí / Điện",
+      "location": "UNETI",
+      "description": "Chủ đề cuộc thi lấy ý tưởng từ các cầu thủ trên sân cỏ, mô phỏng lại một trận đấu bóng đá. Mỗi đội thi gồm 3 robot, trong đó có 1 robot phòng thủ (thủ môn) có thể tham gia tấn công nhưng không được bung cơ cấu phòng thủ khi ở ngoài khu vực phòng ngự.  Và 2 robot tấn công hoạt động ở khu vực tấn công và ghi bàn thắng.",
+      "": [
+        "../assets/achievements/2026/plc-1.jpg"
+      ],
+      "links": [
+        { "label": "Bài viết / Fanpage", "href": "https://www.facebook.com/share/p/1FWsougTWZ/" }
+      ]
+    }
+  ]
+}

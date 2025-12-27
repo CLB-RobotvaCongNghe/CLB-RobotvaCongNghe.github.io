@@ -273,6 +273,7 @@ section[id]{ scroll-margin-top: 92px; }
   border: 1px solid rgba(255,255,255,.10);
   border-radius: 18px;
   padding: 12px 12px;
+  transition: transform .15s ease, background .2s ease, border-color .2s ease;
 }
 .stat__num{
   font-size: 1.35rem;
@@ -285,6 +286,21 @@ section[id]{ scroll-margin-top: 92px; }
   font-size: .92rem;
   color: var(--muted);
   margin-top: 2px;
+}
+
+/* Clickable stats (khi có href trong JSON) */
+.stat--link{
+  display:block;
+  cursor:pointer;
+}
+.stat--link:hover{
+  transform: translateY(-1px);
+  border-color: rgba(255,255,255,.22);
+  background: rgba(255,255,255,.06);
+}
+.stat--link:focus-visible{
+  outline: 2px solid rgba(124,92,255,.65);
+  outline-offset: 3px;
 }
 
 .frame{

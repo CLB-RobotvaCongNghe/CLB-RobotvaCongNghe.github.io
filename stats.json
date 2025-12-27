@@ -1,7 +1,30 @@
 {
   "stats": [
-    { "key": "members", "label": "Thành viên", "value": 22 },
-    { "key": "competitions_joined", "label": "Giải đã tham gia", "value": 10 },
-    { "key": "contests_hosted", "label": "Lần tổ chức giải", "value": 2 }
+    {
+      "key": "members",
+      "label": "Thành viên",
+      "href": "Members/",
+      "source": { "type": "members_total", "url": "Members/members.json" },
+      "value": 0
+    },
+    {
+      "key": "competitions_joined",
+      "label": "Giải đã tham gia",
+      "href": "Achievements/",
+      "source": {
+        "type": "count_where",
+        "url": "Achievements/achievements.json",
+        "path": "items",
+        "where": { "field": "type", "eq": "competition" }
+      },
+      "value": 0
+    },
+    {
+      "key": "contests_hosted",
+      "label": "Lần tổ chức giải",
+      "href": "Competitions-Organized/",
+      "source": { "type": "array_len", "url": "Competitions-Organized/organized.json", "path": "items" },
+      "value": 0
+    }
   ]
 }

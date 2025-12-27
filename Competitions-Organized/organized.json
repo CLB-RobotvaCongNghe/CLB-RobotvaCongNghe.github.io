@@ -1,0 +1,56 @@
+{
+  "items": [
+    {
+      "year": 2025,
+      "type": "competition",
+      "title": "Giải Robot Mini",
+      "time": "11/2025",
+      "location": "UNETI - Cơ sở ...",
+      "summary": "Giải thi đấu robot mini nội bộ, gồm nhiều hạng mục để giao lưu và tuyển chọn đội thi.",
+      "highlights": [
+        "Số đội: 24",
+        "Hạng mục: Line / Maze / Sumo",
+        "Có vòng bảng + knock-out"
+      ],
+      "categories": ["Line", "Maze", "Sumo"],
+      "sponsors": ["Nhà tài trợ A", "Nhà tài trợ B"],
+      "images": [
+        "../assets/organized/2025/robot-mini/1.jpg",
+        "../assets/organized/2025/robot-mini/2.jpg",
+        "../assets/organized/2025/robot-mini/3.jpg"
+      ],
+      "links": [
+        { "label": "Thể lệ", "href": "https://example.com/rules" },
+        { "label": "Album", "href": "https://example.com/album" }
+      ]
+    },
+    {
+      "year": 2025,
+      "type": "workshop",
+      "title": "Workshop + Challenge Tuyển đội",
+      "time": "09/2025",
+      "location": "Phòng Lab ...",
+      "summary": "Chuỗi workshop kèm mini challenge để tuyển chọn nhân sự/đội thi.",
+      "highlights": [
+        "Nội dung: Arduino / Cảm biến / Điều khiển",
+        "Mini challenge cuối buổi",
+        "Có chứng nhận tham gia"
+      ],
+      "categories": ["Arduino", "Cảm biến", "Điều khiển"],
+      "images": [
+        "../assets/organized/2025/workshop/1.jpg",
+        "../assets/organized/2025/workshop/2.jpg"
+      ],
+      "links": [
+        { "label": "Bài đăng", "href": "https://example.com/post" }
+      ]
+    }
+  ],
+  "checklist": [
+    "Lên đề bài + tiêu chí chấm",
+    "Chuẩn bị sân bãi + thiết bị",
+    "Truyền thông + đăng ký đội",
+    "Chạy thử + kiểm thử luật",
+    "Thi đấu + tổng kết + trao giải"
+  ]
+}

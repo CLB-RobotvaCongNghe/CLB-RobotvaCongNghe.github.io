@@ -1,0 +1,116 @@
+{
+  "groups": [
+    {
+      "key": "board",
+      "label": "Ban Chủ nhiệm",
+      "members": [
+        {
+          "name": "Hoàng Xuân Khải",
+          "class": "DHTD16A2CL",
+          "position": "Chủ nhiệm CLB",
+          "avatar": "../assets/members/2025/hoangxuankhai.jpg",
+          "banner": "../assets/members/2025/hoangxuankhai.jpg",
+          "responsibilities": ["Quản lý CLB"]
+        },
+        {
+          "name": "Nguyễn Khắc Tùng Lâm",
+          "class": "DHTD16A2CL",
+          "position": "Phó Chủ nhiệm CLB",
+          "avatar": "../assets/members/2025/nguyenkhactunglam.jpg",
+          "banner": "../assets/members/2025/nguyenkhactunglam.jpg",
+          "responsibilities": ["Quản lý", "Phụ trách kỹ thuật"]
+        },
+        {
+          "name": "Nguyễn Đăng Quang",
+          "class": "DHTD17A1CL",
+          "position": "Phó Chủ nhiệm CLB",
+          "avatar": "../assets/members/2025/nguyenkhactunglam.jpg",
+          "banner": "../assets/members/2025/nguyendangquang.jpg",
+          "responsibilities": ["Sự kiện", "Truyền thông"]
+        }
+      ]
+    },
+    {
+      "key": "support",
+      "label": "Ban Hậu cần",
+      "members": [
+        {
+          "name": "Tống Quang Vinh",
+          "class": "DHTD16A2CL",
+          "position": "Ban Hậu cần",
+          "avatar": "../assets/members/2025/tongquangvinh.jpg",
+          "banner": "../assets/members/2025/tongquangvinh.jpg",
+          "responsibilities": ["Hậu cần", "Tài chính"]
+        }
+      ]
+    },
+    {
+      "key": "tech",
+      "label": "Ban Kỹ thuật",
+      "members": [
+        {
+          "name": "Trần Đăng Khoa",
+          "class": "DHTD18A2HN",
+          "position": "Trưởng ban kỹ thuật",
+          "avatar": "../assets/members/2025/trandangkhoa.jpg",
+          "banner": "../assets/members/2025/trandangkhoa.jpg",
+          "responsibilities": ["Lập trình", "Điện tử"]
+        },
+        {
+          "name": "Hoàng Văn Khải",
+          "class": "DHTD16A2CL",
+          "position": "Mảng Điện tử - Điều khiển",
+          "avatar": "../assets/members/2025/hoangvankhai.jpg",
+          "banner": "../assets/members/2025/hoangvankhai.jpg",
+          "responsibilities": ["Điện tử", "Điều khiển"]
+        },
+        {
+          "name": "Nguyễn Nguyên Giáp",
+          "class": "DHTD18A1CL",
+          "position": "Mảng Lập trình - Phần mềm",
+          "avatar": "../assets/members/2025/nguyennguyengiap.jpg",
+          "banner": "../assets/members/2025/nguyennguyengiap.jpg",
+          "responsibilities": ["Lập trình", "Phần mềm"]
+        },
+        {
+          "name": "Lê Hữu Tràng",
+          "class": "DHTD18A2HN",
+          "position": "Mảng Thiết kế - Chế tạo robot",
+          "avatar": "../assets/members/2025/lehuutrang.jpg",
+          "banner": "../assets/members/2025/lehuutrang.jpg",
+          "responsibilities": ["Thiết kế", "Chế tạo robot"]
+        },
+        {
+          "name": "Lê Huy Hoàng",
+          "class": "DHTD18A1CL",
+          "position": "TV Ban Kỹ thuật - Học thuật",
+          "avatar": "../assets/members/2025/lehuyhoang.jpg",
+          "banner": "../assets/members/2025/lehuyhoang.jpg",
+          "responsibilities": ["Thiết kế", "Chế tạo robot"]
+        }
+      ]
+    },
+    {
+      "key": "media",
+      "label": "Ban Truyền thông",
+      "members": [
+        {
+          "name": "Trịnh Hải Quân",
+          "class": "DHTD17A1CL",
+          "position": "Trưởng ban truyền thông",
+          "avatar": "../assets/members/2025/trinhhaiquan.jpg",
+          "banner": "../assets/members/2025/trinhhaiquan.jpg",
+          "responsibilities": ["Sự kiện", "Truyền thông"]
+        },
+        {
+          "name": "Trương Anh Quân",
+          "class": "DHTD18A1CL",
+          "position": "TV Ban Truyền thông - Sự kiện",
+          "avatar": "../assets/members/2025/truonganhquan.jpg",
+          "banner": "../assets/members/2025/truonganhquan.jpg",
+          "responsibilities": ["Sự kiện", "Truyền thông"]
+        }
+      ]
+    }
+  ]
+}

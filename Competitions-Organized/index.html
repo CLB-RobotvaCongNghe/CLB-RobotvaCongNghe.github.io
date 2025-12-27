@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b1020" />
+  <title>Tổ chức giải — CLB Robot & Công nghệ (UNETI)</title>
+  <meta name="description" content="Danh sách các giải/hoạt động thi đấu do CLB tổ chức." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body class="page-organized">
+  <div id="top"></div>
+
+  <div class="bg">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grid"></div>
+    <canvas id="stars" aria-hidden="true"></canvas>
+  </div>
+
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="../" aria-label="Về trang chủ">
+        <img src="../assets/logo.jpg" alt="Logo CLB Robot & Công nghệ" class="brand__logo" />
+        <div class="brand__text">
+          <div class="brand__name">CLB Robot & Công nghệ</div>
+          <div class="brand__sub">Khoa Điện & Tự động hoá — UNETI</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Điều hướng">
+        <button class="nav__toggle" id="navToggle" aria-label="Mở menu" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <ul class="nav__list" id="navList">
+          <li><a class="nav__link" href="../#gioi-thieu">Giới thiệu</a></li>
+          <li><a class="nav__link" href="../#hoat-dong">Hoạt động</a></li>
+          <li><a class="nav__link" href="../#san-choi">Sân chơi</a></li>
+          <li><a class="nav__link" href="../Members/">Thành viên</a></li>
+          <li><a class="nav__link" href="../Achievements/">Thành tích</a></li>
+          <li><a class="nav__link active" href="../Competitions-Organized/">Tổ chức giải</a></li>
+          <li><a class="nav__link" href="../#lien-he">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" style="padding-bottom: 12px;">
+      <div class="container hero__grid" style="grid-template-columns: 1fr;">
+        <div class="hero__left reveal">
+          <div class="chips">
+            <span class="chip"><i class="fa-solid fa-link"></i> /Competitions-Organized</span>
+            <span class="chip"><i class="fa-solid fa-house"></i>
+              <a href="../" style="text-decoration:underline; text-underline-offset:4px;">Trang chủ</a>
+            </span>
+          </div>
+
+          <h1 class="hero__title">🏆 Tổ chức giải <span class="accent">⚙️</span></h1>
+          <p class="hero__subtitle">Danh sách các giải/hoạt động thi đấu do CLB tổ chức.</p>
+
+          <div class="hero__cta">
+            <a class="btn btn--ghost" href="../">
+              <i class="fa-solid fa-arrow-left"></i> Quay về trang chủ
+            </a>
+            <a class="btn btn--primary" href="../#tham-gia">
+              <i class="fa-solid fa-user-plus"></i> Tham gia CLB
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="organized" style="padding-top:0;">
+      <div class="container">
+        <div class="section__head reveal">
+          <h2 class="section__title">🏆 Các giải đã tổ chức</h2>
+          <p class="section__desc">Dữ liệu load từ <b>Competitions-Organized/organized.json</b>.</p>
+        </div>
+
+        <!-- Filters -->
+        <div class="orgFilters reveal" style="margin-top:14px;">
+          <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+            <span class="tag"><i class="fa-solid fa-filter"></i> Lọc</span>
+
+            <select id="orgYear" class="orgControl">
+              <option value="__all__">Tất cả năm</option>
+            </select>
+
+            <select id="orgType" class="orgControl">
+              <option value="__all__">Tất cả loại</option>
+              <option value="competition">Giải đấu</option>
+              <option value="workshop">Workshop / Challenge</option>
+              <option value="event">Sự kiện khác</option>
+            </select>
+
+            <div class="orgSearch">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input id="orgSearch" type="search" placeholder="Tìm theo tên/địa điểm/năm/tài trợ..." />
+            </div>
+          </div>
+        </div>
+
+        <!-- Render -->
+        <div id="orgContent" style="margin-top:16px;"></div>
+
+        <div id="orgEmpty" class="panel" style="margin-top:12px; display:none;">
+          <h3 style="margin:0 0 8px;">Không có dữ liệu</h3>
+          <p style="margin:0; color: rgba(234,240,255,.72); line-height:1.6;">
+            Kiểm tra <b>Competitions-Organized/organized.json</b> hoặc chạy site bằng server (không mở file:///).
+          </p>
+        </div>
+
+        <!-- Checklist -->
+        <div id="orgChecklistWrap" class="timeline reveal" style="display:none;">
+          <h3 class="timeline__title">🗂 Checklist tổ chức giải</h3>
+          <div id="orgChecklist" class="timeline__items"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        © <span id="year"></span> CLB Robot & Công nghệ — UNETI • Design by
+        <a class="link" href="https://github.com/TranDangKhoaTechnology" target="_blank" rel="noopener">Trưởng Ban Kĩ Thuật</a>
+      </div>
+      <div class="footer__right">
+        <a class="link" href="#top">Về đầu trang ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="toTop" id="toTop" aria-label="Lên đầu trang">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script src="../script.js"></script>
+
+  <!-- ✅ Modal ảnh -->
+  <div id="imgModal" class="imgModal" aria-hidden="true">
+    <div class="imgModal__backdrop" data-close="1"></div>
+
+    <div class="imgModal__panel" role="dialog" aria-modal="true" aria-label="Xem ảnh">
+      <button class="imgModal__close" type="button" aria-label="Đóng" data-close="1">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <button class="imgModal__nav imgModal__prev" type="button" aria-label="Ảnh trước" data-nav="prev">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+
+      <button class="imgModal__nav imgModal__next" type="button" aria-label="Ảnh sau" data-nav="next">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+
+      <div id="imgModalCounter" class="imgModal__counter">1 / 1</div>
+
+      <img id="imgModalView" class="imgModal__img" src="" alt="Ảnh" />
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var host = document.getElementById("orgContent");
+      var emptyBox = document.getElementById("orgEmpty");
+
+      var yearSel = document.getElementById("orgYear");
+      var typeSel = document.getElementById("orgType");
+      var searchInput = document.getElementById("orgSearch");
+
+      var checklistWrap = document.getElementById("orgChecklistWrap");
+      var checklistHost = document.getElementById("orgChecklist");
+
+      function esc(s) {
+        return String(s || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+      function norm(s) { return String(s || "").toLowerCase().trim(); }
+
+      function typeLabel(t) {
+        if (t === "competition") return "Giải đấu";
+        if (t === "workshop") return "Workshop / Challenge";
+        if (t === "event") return "Sự kiện";
+        return "Khác";
+      }
+
+      function pillsHTML(arr) {
+        if (!Array.isArray(arr) || !arr.length) return "";
+        return '<div class="pillRow" style="margin-top:10px;">' +
+          arr.map(function (x) { return '<span class="pill">' + esc(x) + '</span>'; }).join("") +
+        '</div>';
+      }
+
+      function listHTML(title, items) {
+        if (!Array.isArray(items) || !items.length) return "";
+        return '<div class="orgBlock">' +
+          '<div class="orgBlock__title">' + esc(title) + '</div>' +
+          '<ul class="list" style="margin:8px 0 0;">' +
+            items.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join("") +
+          '</ul>' +
+        '</div>';
+      }
+
+      function galleryHTML(images) {
+        if (!Array.isArray(images) || !images.length) return "";
+        var thumbs = images.slice(0, 8).map(function (src) {
+          return (
+            '<button class="orgThumbBtn" type="button" data-img="' + esc(src) + '" aria-label="Xem ảnh">' +
+              '<img src="' + esc(src) + '" alt="Ảnh minh hoạ">' +
+            '</button>'
+          );
+        }).join("");
+        return '<div class="orgGallery">' + thumbs + '</div>';
+      }
+
+      function linksHTML(links) {
+        if (!Array.isArray(links) || !links.length) return "";
+        return '<div class="orgLinks">' + links.map(function (l) {
+          return '<a class="btn btn--ghost orgLinkBtn" href="' + esc(l.href) + '" target="_blank" rel="noopener">' +
+            '<i class="fa-solid fa-arrow-up-right-from-square"></i> ' + esc(l.label || "Link") +
+          '</a>';
+        }).join("") + '</div>';
+      }
+
+      function cardHTML(it) {
+        var y = esc(it.year);
+        var t = esc(typeLabel(it.type));
+        var title = esc(it.title || "Sự kiện");
+        var time = esc(it.time || "");
+        var loc = esc(it.location || "");
+        var sum = esc(it.summary || "");
+
+        var highlights = Array.isArray(it.highlights) ? it.highlights : [];
+        var sponsors = Array.isArray(it.sponsors) ? it.sponsors : [];
+        var categories = Array.isArray(it.categories) ? it.categories : [];
+
+        return (
+          '<article class="card orgCard tilt" data-tilt>' +
+            '<div class="orgTop">' +
+              '<div class="orgTitle">' +
+                '<div class="orgName">' + title + '</div>' +
+                '<div class="orgMeta">' +
+                  '<span class="orgBadge"><i class="fa-solid fa-tag"></i> ' + t + '</span>' +
+                  '<span class="orgBadge"><i class="fa-solid fa-calendar"></i> ' + y + '</span>' +
+                  (time ? '<span class="orgBadge"><i class="fa-regular fa-clock"></i> ' + time + '</span>' : '') +
+                  (loc ? '<span class="orgBadge"><i class="fa-solid fa-location-dot"></i> ' + loc + '</span>' : '') +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+
+            (sum ? '<p class="orgDesc">' + sum + '</p>' : '') +
+
+            (categories.length ? pillsHTML(categories) : '') +
+            listHTML("Điểm nổi bật", highlights) +
+            listHTML("Tài trợ", sponsors) +
+
+            galleryHTML(it.images) +
+            linksHTML(it.links) +
+          '</article>'
+        );
+      }
+
+      function groupByYear(items) {
+        var map = {};
+        items.forEach(function (it) {
+          var y = String(it.year || "");
+          if (!map[y]) map[y] = [];
+          map[y].push(it);
+        });
+        return map;
+      }
+
+      function render(items, yf, tf, q) {
+        host.innerHTML = "";
+        var qn = norm(q);
+
+        var filtered = items.filter(function (it) {
+          if (yf !== "__all__" && String(it.year) !== String(yf)) return false;
+          if (tf !== "__all__" && String(it.type) !== String(tf)) return false;
+
+          if (!qn) return true;
+          var hay = [
+            it.year, it.type, it.title, it.time, it.location, it.summary,
+            (Array.isArray(it.highlights) ? it.highlights.join(" ") : ""),
+            (Array.isArray(it.categories) ? it.categories.join(" ") : ""),
+            (Array.isArray(it.sponsors) ? it.sponsors.join(" ") : "")
+          ].map(norm).join(" | ");
+          return hay.indexOf(qn) !== -1;
+        });
+
+        if (!filtered.length) {
+          emptyBox.style.display = "block";
+          return;
+        }
+        emptyBox.style.display = "none";
+
+        filtered.sort(function (a, b) {
+          return (Number(b.year) || 0) - (Number(a.year) || 0);
+        });
+
+        var byYear = groupByYear(filtered);
+        var years = Object.keys(byYear).sort(function (a, b) { return Number(b) - Number(a); });
+
+        years.forEach(function (y) {
+          host.insertAdjacentHTML("beforeend",
+            '<div class="orgYearHead">' +
+              '<h3 class="section__title" style="font-size:1.4rem; margin:0;">📌 Năm ' + esc(y) + '</h3>' +
+              '<div class="orgYearCount">' + byYear[y].length + ' mục</div>' +
+            '</div>' +
+            '<div class="cards cards--wide">' +
+              byYear[y].map(cardHTML).join("") +
+            '</div>'
+          );
+        });
+      }
+
+      // Load JSON
+      fetch("./organized.json", { cache: "no-store" })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          var items = Array.isArray(data && data.items) ? data.items : [];
+          if (!items.length) { emptyBox.style.display = "block"; return; }
+
+          // build year options
+          var years = Array.from(new Set(items.map(function (x) { return x.year; })))
+            .filter(Boolean)
+            .sort(function (a, b) { return b - a; });
+
+          yearSel.innerHTML = ['<option value="__all__">Tất cả năm</option>']
+            .concat(years.map(function (y) { return '<option value="' + esc(y) + '">' + esc(y) + '</option>'; }))
+            .join("");
+
+          // checklist (optional)
+          var checklist = Array.isArray(data && data.checklist) ? data.checklist : [];
+          if (checklistWrap && checklistHost && checklist.length) {
+            checklistWrap.style.display = "block";
+            checklistHost.innerHTML = checklist.map(function (x) {
+              return '<div class="titem"><div class="titem__dot"></div><div class="titem__body">' + esc(x) + '</div></div>';
+            }).join("");
+          }
+
+          function apply() {
+            render(items, yearSel.value, typeSel.value, searchInput.value);
+          }
+          yearSel.addEventListener("change", apply);
+          typeSel.addEventListener("change", apply);
+          searchInput.addEventListener("input", apply);
+
+          apply();
+        })
+        .catch(function () {
+          emptyBox.style.display = "block";
+        });
+    })();
+  </script>
+
+  <!-- ✅ Modal logic: bấm ảnh -> mở modal + prev/next + phím ← → -->
+  <script>
+    (function () {
+      var modal = document.getElementById("imgModal");
+      var imgView = document.getElementById("imgModalView");
+      var counter = document.getElementById("imgModalCounter");
+
+      var list = [];
+      var idx = 0;
+
+      function setImg() {
+        if (!imgView || !list.length) return;
+        imgView.src = list[idx];
+        if (counter) counter.textContent = (idx + 1) + " / " + list.length;
+      }
+
+      function openModal(imgList, startIndex) {
+        if (!modal || !imgView) return;
+        list = Array.isArray(imgList) ? imgList : [];
+        idx = Math.max(0, Math.min(Number(startIndex) || 0, list.length - 1));
+        setImg();
+        modal.classList.add("is-open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("noScroll");
+      }
+
+      function closeModal() {
+        if (!modal || !imgView) return;
+        modal.classList.remove("is-open");
+        modal.setAttribute("aria-hidden", "true");
+        imgView.src = "";
+        if (counter) counter.textContent = "";
+        list = [];
+        idx = 0;
+        document.body.classList.remove("noScroll");
+      }
+
+      function step(dir) {
+        if (!list.length) return;
+        idx = (idx + dir + list.length) % list.length;
+        setImg();
+      }
+
+      document.addEventListener("click", function (e) {
+        // Click thumbnail
+        var btn = e.target.closest(".orgThumbBtn");
+        if (btn && btn.dataset && btn.dataset.img) {
+          e.preventDefault();
+
+          var gallery = btn.closest(".orgGallery");
+          var buttons = gallery ? gallery.querySelectorAll(".orgThumbBtn[data-img]") : [btn];
+          var imgs = Array.prototype.map.call(buttons, function (b) { return b.dataset.img; }).filter(Boolean);
+
+          var start = imgs.indexOf(btn.dataset.img);
+          openModal(imgs, start >= 0 ? start : 0);
+          return;
+        }
+
+        // Prev/Next
+        var nav = e.target.closest("[data-nav]");
+        if (nav) {
+          e.preventDefault();
+          step(nav.dataset.nav === "next" ? 1 : -1);
+          return;
+        }
+
+        // Close
+        if (e.target.closest('[data-close="1"]')) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (!modal || !modal.classList.contains("is-open")) return;
+        if (e.key === "Escape") closeModal();
+        if (e.key === "ArrowRight") step(1);
+        if (e.key === "ArrowLeft") step(-1);
+      });
+    })();
+  </script>
+
+  <style>
+    /* Filters */
+    .orgFilters{
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(9,14,30,.55);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+    }
+    .orgControl{
+      height: 44px;
+      border-radius: 14px;
+      padding: 0 12px;
+      color: rgba(234,240,255,.92);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      outline: none;
+    }
+    .orgSearch{
+      flex: 1 1 auto;
+      min-width: min(420px, 100%);
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      height: 44px;
+      padding: 0 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .orgSearch i{ opacity:.7; }
+    .orgSearch input{
+      width:100%;
+      border:0;
+      outline:0;
+      background: transparent;
+      color: rgba(234,240,255,.92);
+      font: inherit;
+    }
+
+    /* Year head */
+    .orgYearHead{
+      margin-top: 18px;
+      margin-bottom: 10px;
+      display:flex;
+      align-items:flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .orgYearCount{
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+      color: rgba(234,240,255,.78);
+      font-size: .92rem;
+      white-space: nowrap;
+    }
+
+    /* Cards */
+    .orgCard{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(10,14,28,.55);
+      box-shadow: 0 18px 45px rgba(0,0,0,.45);
+      transition: transform .18s ease, border-color .18s ease;
+    }
+    .orgCard:hover{
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .orgName{
+      font-weight: 700;
+      font-size: 1.10rem;
+      letter-spacing: .2px;
+      overflow-wrap:anywhere;
+      word-break: break-word;
+    }
+
+    .orgMeta{
+      margin-top: 10px;
+      display:flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      color: rgba(234,240,255,.72);
+      font-size: .92rem;
+    }
+    .orgBadge{
+      display:inline-flex;
+      gap: 8px;
+      align-items:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.06);
+    }
+
+    .orgDesc{
+      margin: 10px 0 0;
+      color: rgba(234,240,255,.72);
+      line-height: 1.6;
+    }
+
+    .orgBlock{ margin-top: 12px; }
+    .orgBlock__title{
+      font-weight: 650;
+      color: rgba(234,240,255,.86);
+      margin-bottom: 6px;
+    }
+
+    /* Gallery */
+    .orgGallery{
+      margin-top: 12px;
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    @media (max-width: 740px){
+      .orgGallery{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .orgSearch{ min-width: 100%; }
+    }
+
+    .orgThumbBtn{
+      display:block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      border-radius: 14px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.12);
+      cursor: zoom-in;
+      transition: transform .14s ease, border-color .14s ease;
+    }
+    .orgThumbBtn:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.18);
+    }
+    .orgThumbBtn img{
+      width:100%;
+      height: 92px;
+      object-fit: cover;
+      display:block;
+    }
+
+    .orgLinks{
+      margin-top: 12px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .orgLinkBtn{ padding: 10px 12px; }
+
+    /* Modal */
+    .noScroll{ overflow: hidden; }
+
+    .imgModal{
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+    }
+    .imgModal.is-open{ display:block; }
+
+    .imgModal__backdrop{
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0,.65);
+      backdrop-filter: blur(6px);
+    }
+
+    .imgModal__panel{
+      position: relative;
+      z-index: 1;
+      width: min(980px, calc(100% - 24px));
+      margin: 6vh auto 0;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(10,14,28,.75);
+      box-shadow: 0 30px 80px rgba(0,0,0,.6);
+      overflow: hidden;
+    }
+
+    .imgModal__img{
+      display:block;
+      width: 100%;
+      height: auto;
+      max-height: 78vh;
+      object-fit: contain;
+      background: rgba(0,0,0,.25);
+    }
+
+    .imgModal__close{
+      position:absolute;
+      top:10px;
+      right:10px;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      color: rgba(234,240,255,.92);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      z-index: 3;
+    }
+
+    .imgModal__nav{
+      position:absolute;
+      top:50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      color: rgba(234,240,255,.92);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      z-index: 3;
+    }
+    .imgModal__prev{ left: 10px; }
+    .imgModal__next{ right: 10px; }
+
+    .imgModal__counter{
+      position:absolute;
+      left: 10px;
+      bottom: 10px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.25);
+      color: rgba(234,240,255,.88);
+      font-size: .92rem;
+      z-index: 3;
+    }
+  </style>
+</body>
+</html>
