@@ -2,6 +2,6 @@
   "stats": [
     { "key": "members", "label": "Thành viên", "value": 11 },
     { "key": "competitions_joined", "label": "Giải đã tham gia", "value": 10 },
-    { "key": "contests_hosted", "label": "Lần tổ chức giải", "value": 3 }
+    { "key": "contests_hosted", "label": "Lần tổ chức giải", "value": 2 }
   ]
 }
