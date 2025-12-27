@@ -8,7 +8,7 @@
           "name": "Hoàng Xuân Khải",
           "class": "DHTD16A2CL",
           "position": "Chủ nhiệm CLB",
-          "avatar": "../assets/members/2025/hoangxuankhai.jpg",
+          "avatar": "../assets/members/2025/logo_xkhai.jpg",
           "banner": "../assets/members/2025/hoangxuankhai.jpg",
           "responsibilities": ["Quản lý CLB"]
         },
@@ -16,7 +16,7 @@
           "name": "Nguyễn Khắc Tùng Lâm",
           "class": "DHTD16A2CL",
           "position": "Phó Chủ nhiệm CLB",
-          "avatar": "../assets/members/2025/nguyenkhactunglam.jpg",
+          "avatar": "../assets/members/2025/logo_lam.jpg",
           "banner": "../assets/members/2025/nguyenkhactunglam.jpg",
           "responsibilities": ["Quản lý", "Phụ trách kỹ thuật"]
         },
@@ -24,7 +24,7 @@
           "name": "Nguyễn Đăng Quang",
           "class": "DHTD17A1CL",
           "position": "Phó Chủ nhiệm CLB",
-          "avatar": "../assets/members/2025/nguyenkhactunglam.jpg",
+          "avatar": "../assets/members/2025/logo_quang.jpg",
           "banner": "../assets/members/2025/nguyendangquang.jpg",
           "responsibilities": ["Sự kiện", "Truyền thông"]
         }
@@ -38,7 +38,7 @@
           "name": "Tống Quang Vinh",
           "class": "DHTD16A2CL",
           "position": "Ban Hậu cần",
-          "avatar": "../assets/members/2025/tongquangvinh.jpg",
+          "avatar": "../assets/members/2025/logo_vinh.jpg",
           "banner": "../assets/members/2025/tongquangvinh.jpg",
           "responsibilities": ["Hậu cần", "Tài chính"]
         }
@@ -52,7 +52,7 @@
           "name": "Trần Đăng Khoa",
           "class": "DHTD18A2HN",
           "position": "Trưởng ban kỹ thuật",
-          "avatar": "../assets/members/2025/trandangkhoa.jpg",
+          "avatar": "../assets/members/2025/logo_khoa.jpg",
           "banner": "../assets/members/2025/trandangkhoa.jpg",
           "responsibilities": ["Lập trình", "Điện tử"]
         },
@@ -60,7 +60,7 @@
           "name": "Hoàng Văn Khải",
           "class": "DHTD16A2CL",
           "position": "Mảng Điện tử - Điều khiển",
-          "avatar": "../assets/members/2025/hoangvankhai.jpg",
+          "avatar": "../assets/members/2025/logo_vkhai.jpg",
           "banner": "../assets/members/2025/hoangvankhai.jpg",
           "responsibilities": ["Điện tử", "Điều khiển"]
         },
@@ -68,7 +68,7 @@
           "name": "Nguyễn Nguyên Giáp",
           "class": "DHTD18A1CL",
           "position": "Mảng Lập trình - Phần mềm",
-          "avatar": "../assets/members/2025/nguyennguyengiap.jpg",
+          "avatar": "../assets/members/2025/logo_giap.jpg",
           "banner": "../assets/members/2025/nguyennguyengiap.jpg",
           "responsibilities": ["Lập trình", "Phần mềm"]
         },
@@ -76,7 +76,7 @@
           "name": "Lê Hữu Tràng",
           "class": "DHTD18A2HN",
           "position": "Mảng Thiết kế - Chế tạo robot",
-          "avatar": "../assets/members/2025/lehuutrang.jpg",
+          "avatar": "../assets/members/2025/logo_trang.jpg",
           "banner": "../assets/members/2025/lehuutrang.jpg",
           "responsibilities": ["Thiết kế", "Chế tạo robot"]
         },
@@ -84,7 +84,7 @@
           "name": "Lê Huy Hoàng",
           "class": "DHTD18A1CL",
           "position": "TV Ban Kỹ thuật - Học thuật",
-          "avatar": "../assets/members/2025/lehuyhoang.jpg",
+          "avatar": "../assets/members/2025/logo_hoang.jpg",
           "banner": "../assets/members/2025/lehuyhoang.jpg",
           "responsibilities": ["Thiết kế", "Chế tạo robot"]
         }
@@ -98,7 +98,7 @@
           "name": "Trịnh Hải Quân",
           "class": "DHTD17A1CL",
           "position": "Trưởng ban truyền thông",
-          "avatar": "../assets/members/2025/trinhhaiquan.jpg",
+          "avatar": "../assets/members/2025/logo_trinhquan.jpg",
           "banner": "../assets/members/2025/trinhhaiquan.jpg",
           "responsibilities": ["Sự kiện", "Truyền thông"]
         },
@@ -106,7 +106,7 @@
           "name": "Trương Anh Quân",
           "class": "DHTD18A1CL",
           "position": "TV Ban Truyền thông - Sự kiện",
-          "avatar": "../assets/members/2025/truonganhquan.jpg",
+          "avatar": "../assets/members/2025/logo_truongquan.jpg",
           "banner": "../assets/members/2025/truonganhquan.jpg",
           "responsibilities": ["Sự kiện", "Truyền thông"]
         }
